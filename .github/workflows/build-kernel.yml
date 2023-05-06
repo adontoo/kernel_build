@@ -26,7 +26,7 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 aarch64-linux-android-4.9
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm-linux-androideabi-4.9
-          mkdir clang && wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master-kernel-build-2022/clang-r458507.tar.gz && tar -C clang/ -zxvf clang-*.tar.gz
+          mkdir clang && wget https://objects.githubusercontent.com/github-production-release-asset-2e65be/430970692/e199c3b7-0118-4481-ac5d-5a4128c1df98?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230506%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230506T143849Z&X-Amz-Expires=300&X-Amz-Signature=b5c6c86ae6c198b218a35ef6528537a2a872fc23fe0784a5a072d23fe930c095&X-Amz-SignedHeaders=host&actor_id=132338924&key_id=0&repo_id=430970692&response-content-disposition=attachment%3B%20filename%3DClang-17.0.0-20230429.tar.gz&response-content-type=application%2Foctet-stream && tar -C clang/ -zxvf clang-*.tar.gz
 
       - name: Pull kernel source
         run: |
