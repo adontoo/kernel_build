@@ -61,7 +61,7 @@ jobs:
           #echo "CONFIG_POSIX_MQUEUE=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           #echo "CONFIG_USER_NS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           #echo "CONFIG_CGROUP_PIDS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #make ${args} ${{ env.KERNEL_TARGET }}_defconfig
+          make ${args} ${{ env.KERNEL_TARGET }}_defconfig
           cp config .config
           make -j64 ${args}
 
