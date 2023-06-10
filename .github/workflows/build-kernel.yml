@@ -48,10 +48,10 @@ jobs:
                                   CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- 
                                   dtc=/usr/bin/dtc"
           cd kernel-source
-          cd ../..
+          #cd ../..
           git clone https://github.com/OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8150
-          cp -r ./android_kernel_modules_and_devicetree_oneplus_sm8150/vendor ./vendor
-          cd kernel-source
+          cp -r ./android_kernel_modules_and_devicetree_oneplus_sm8150/vendor ../../vendor
+          #cd kernel-source
           #chmod -R 777 ./prebuilt/dtc
           #curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
           #echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
