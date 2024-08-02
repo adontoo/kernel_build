@@ -35,7 +35,7 @@ jobs:
 
       - name: Build kernel
         run: |
-          export KBUILD_BUILD_USER="zclkkk"
+          export KBUILD_BUILD_USER="adontoo"
           export KBUILD_BUILD_HOST="workspace"
           export PATH=$GITHUB_WORKSPACE/clang/bin:${PATH}
           args="                  ARCH=arm64 \
@@ -47,22 +47,13 @@ jobs:
                                   dtc=/usr/bin/dtc"
           cd kernel-source
           chmod -R 777 ./prebuilt/dtc
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
           echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           echo "CONFIG_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           echo "CONFIG_HAVE_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           echo "CONFIG_KPROBE_EVENTS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           echo "CONFIG_OVERLAY_FS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_PID_NS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_IPC_NS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_CGROUP_DEVICE=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_NETFILTER_XT_MATCH_IPVS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_POSIX_MQUEUE=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_USER_NS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-          #echo "CONFIG_CGROUP_PIDS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           make ${args} ${{ env.KERNEL_TARGET }}_defconfig
-          #cp config .config
           make -j64 ${args}
 
       - name: Package kernel
